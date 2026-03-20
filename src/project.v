@@ -22,7 +22,7 @@ module tt_um_test (
   assign uo_out[7] = &ui_in;                // Reduction AND (1 αν όλα τα ui_in είναι 1)
 
   // uio_out: Αντιστροφή των εισόδων uio_in
-  assign uio_out = ~uio_in;
+  assign uio_out = ui_in & uio_in;
   
   // uio_oe: Ορίζουμε όλα τα uio ως εξόδους (1) ή εισόδους (0)
   // Ας τα αφήσουμε ως εισόδους για να λειτουργεί το παραπάνω logic
