@@ -11,11 +11,9 @@ module tt_um_test (
     input  wire       rst_n     
 );
 
-  // 1. Απλές Πύλες: Έλεγχος αν ο αριθμός είναι έγκυρος (0-9)
-  // Ένας αριθμός > 9 στην είσοδο ui_in[3:0] (δηλ. 1010 έως 1111)
+   // Ελέγχουμε εάν ο αριθμός είναι μεγαλύτερος απο την τιμή 9 στην είσοδο ui_in[3:0] (δηλ. 1010 έως 1111)
   wire invalid = (ui_in[3] & ui_in[1]) | (ui_in[3] & ui_in[2]);
 
-  // 2. Πιο Σύνθετο: Decoder με Case Statement
   // Αντιστοιχούμε τον 4-bit αριθμό στα 7 segments (a,b,c,d,e,f,g)
   reg [6:0] segments;
 
@@ -35,7 +33,7 @@ module tt_um_test (
     endcase
   end
 
-  // Έξοδος: Τα 7 segments στα LED και το 8ο LED δείχνει αν η είσοδος είναι > 9
+  // Ανάθεση εξοδου: Τα 7 segments στα LED και το 8ο LED δείχνει αν η είσοδος είναι > 9
   assign uo_out[6:0] = segments;
   assign uo_out[7]   = invalid; 
 
